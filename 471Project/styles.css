@@ -213,6 +213,10 @@
     font-size: 25px;
 }
 
+.container form .form-check{
+    color: #1b4332;
+}
+
 .container form h1{
     text-align: center;
     margin-bottom: 24px;
