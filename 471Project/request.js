@@ -455,8 +455,7 @@ function driverRating() {
     })
     .then((data) => {
       console.log(data);
-      if (!isNaN(data.rating)) localStorage.setItem("rating", data.rating);
-      else localStorage.setItem("rating", null);
+      localStorage.setItem("rating", data.rating);
       window.location = "ratings.html";
     })
     .catch((error) => console.log(error));
