@@ -38,7 +38,7 @@
             <li class="list-group-item">Pickup Location: ${orders[i].pickup_location}</li>
             <li class="list-group-item">Delivery Location: ${orders[i].delivery_location}</li>
             <li class="list-group-item">Date: ${orders[i].date}</li>
-            <input onclick="assignDriver('${localStorage.getItem("currentUserID")}','${orders[i]._id}','${order_status}')" type="button" class="btn" value="Pick Up">
+            <input onclick="assignDriver('${orders[i]._id}','${order_status}')" type="button" class="btn" value="Pick Up">
           </ul>
           `
             );
