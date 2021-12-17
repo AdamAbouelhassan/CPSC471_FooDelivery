@@ -62,6 +62,7 @@
             }
             document.getElementById("updateOrder").onclick = function () {
               updateOrder(
+                orders[i].driverID,
                 orders[i]._id,
                 document.getElementById("status").value,
                 document.getElementById("pickup_time").value,
@@ -72,6 +73,7 @@
             };
             document.getElementById("deliveredOrder").onclick = function () {
               updateOrder(
+                orders[i].driverID,
                 orders[i]._id,
                 "delivered",
                 document.getElementById("pickup_time").value,
