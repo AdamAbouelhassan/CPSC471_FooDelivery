@@ -42,7 +42,7 @@
             <li id="items" class="list-group-item">Items Delivered:</li>
             <li id="total_price${i}" class="list-group-item">Total Price: $${orders[i].cart.total_price}</li>
             <li id="items" class="list-group-item">Rate your Driver: </li>
-            0 <input type="range" min="0" max="5" value="3" class="slider" id="rating-slider${i}"> 5
+            0 <input type="range" min="0" max="5" value="${orders[i].rating}" class="slider" id="rating-slider${i}"> 5
           </ul>
           `
           );
@@ -60,6 +60,7 @@
 
           document.getElementById("rating-slider" + i).onchange = function () {
             updateOrder(
+              orders[i].driverID,
               orders[i]._id,
               orders[i].status,
               orders[i].pickup_time,
