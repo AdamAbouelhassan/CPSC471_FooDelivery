@@ -167,7 +167,7 @@ function assignDriver(orderID, order_status) {
 }
 
 // update order status
-function updateOrder(orderID, order_status, pickup_time, arrival_time, rating, alert) {
+function updateOrder(driverID, orderID, order_status, pickup_time, arrival_time, rating, alert) {
   console.log(order_status);
   console.log(pickup_time);
   console.log(arrival_time);
@@ -180,7 +180,7 @@ function updateOrder(orderID, order_status, pickup_time, arrival_time, rating, a
     body: JSON.stringify({
       orderID: orderID,
       order_status: order_status,
-      driverID: localStorage.getItem("currentUserID"),
+      driverID: driverID,
       pickup_time: pickup_time,
       arrival_time: arrival_time,
       rating: rating,
