@@ -26,15 +26,9 @@
 
   <script>
     let rating = localStorage.getItem("rating");
-    if (rating == null) {
       document.getElementById("rating").innerHTML += `
-          <h1 style="font-size: 80px">No ratings yet</h1>
+          <h1 style="font-size: 80px">${rating}</h1>
           `;
-    } else {
-      document.getElementById("rating").innerHTML += `
-        <h1 style="font-size: 80px">${parseFloat(rating).toFixed(1)} Stars</h1>
-        `;
-    }
   </script>
 </body>
 <script src="request.js"></script>
