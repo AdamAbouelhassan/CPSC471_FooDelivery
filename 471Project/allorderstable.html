@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Brawler&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>All Available Orders</title>
+  </head>
+  <body class="stores" id="body">
+    <header class="heading">
+      <h1>FooDelivery!</h1>
+      <nav>
+        <ul>
+          <li><a href="drivermenu.html">Back to Main Menu</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <ul class="list-group">
+      <script>
+        let orders = JSON.parse(localStorage.getItem("allAvailableOrders"));
+        let order_status = "Driver Assigned";
+        if (orders) {
+          for (let i = 0; i < orders.length; i++) {
+            document.getElementById("body").insertAdjacentHTML(
+              "beforeend",
+              `
+          <ul class="list-group items-list">
+            <li class="list-group-item">Pickup Location: ${orders[i].pickup_location}</li>
+            <li class="list-group-item">Delivery Location: ${orders[i].delivery_location}</li>
+            <li class="list-group-item">Date: ${orders[i].date}</li>
+            <input onclick="assignDriver('${orders[i]._id}','${order_status}')" type="button" class="btn" value="Pick Up">
+          </ul>
+          `
+            );
+          }
+        } else {
+          document.getElementById("body").insertAdjacentHTML(
+            "beforeend",
+            `
+              <h1 class = "no-orders">No Available Orders for Pick Up</h1>
+              `
+          );
+        }
+      </script>
+    </ul>
+  </body>
+  <script src="request.js"></script>
+</html>

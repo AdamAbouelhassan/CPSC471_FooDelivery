@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>FooDelivery!</title>
+  </head>
+  <body class="stores">
+    <header class="heading">
+      <h1>FooDelivery!</h1>
+      <nav>
+        <ul>
+          <li><a href="allstores.html">Find a Store</a></li>
+          <li><input onclick = "pastOrders()" type = "button" class = "btn">Past Orders</li>
+          <li><a href="shoppingcart.html">Shopping Cart</a></li>
+          <li><a href="login.html">Sign Out</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="search-bar">
+      <div class="title2">
+        <h1>Search Stores</h1>
+      </div>
+
+      <div class="search-box">
+        <input
+          class="search-txt"
+          type="text"
+          name=""
+          placeholder="Type to search..."
+        />
+        <a class="search-btn" href="#"> </a>
+      </div>
+    </div>
+
+    <div id="popular-choices-wrapper" class="wrapper">
+      <h1>Popular Choices</h1>
+    </div>
+
+    <footer>
+      <ul class="social">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Contact Us</a>
+        </li>
+      </ul>
+      <p class="copyright">Them Coding Guys @2021</p>
+    </footer>
+    <script>
+      let stores = JSON.parse(localStorage.getItem("allStores"));
+      for (let j = 0; j < 3 && j < stores.length; j++) {
+        document.getElementById("popular-choices-wrapper").innerHTML += `
+                  <div class = "box">
+                    <h2>${stores[j].name}</h2>
+                    <input onclick="departmentsPage('${stores[j]._id}')" type = "button" class = "btn" value = "Select">
+                    </div>
+          `;
+      }
+    </script>
+  </body>
+  <script src="request.js"></script>
+</html>

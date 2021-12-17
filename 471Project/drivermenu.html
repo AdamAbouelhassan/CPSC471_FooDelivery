@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Driver Menu</title>
+</head>
+<body class = "stores">
+    <header class = "heading">
+        <h1>FooDelivery!</h1>
+    </header>
+    
+    <div class="wrapper">
+        <div class="box">
+            <h2>View Available Orders</h2>
+            <input onclick = "allAvailableOrdersPage()" type="button" class = "btn" value = "SELECT">
+        </div>
+        <div class="box">
+            <h2>View My Orders</h2>
+            <input onclick = "myOrdersPage()" type="submit" class = "btn" value = "SELECT">
+        </div>
+
+        <div class="box">
+            <h2>View Rating</h2>
+            <input onclick = "driverRating()" type="submit" class = "btn" value = "SELECT">
+        </div>
+    </div>
+
+</body>
+<script src = "request.js"></script>
+</html>

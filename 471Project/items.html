@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Items</title>
+  </head>
+  <body id="body" class="stores">
+    <header class="heading">
+      <h1>FooDelivery!</h1>
+      <nav>
+        <ul>
+          <li><a href="shoppingcart.html">Shopping Cart</a></li>
+          <li><a href="departments.html">Back to Departments</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <script>
+      document.getElementById("body").insertAdjacentHTML(
+        "beforeend",
+        `
+      <div class="bakery">
+          <h1 class="dep-title">${localStorage.getItem("departmentName")}</h1>
+        </div>
+      `
+      );
+    </script>
+
+    <div id="items-wrapper" class="wrapper"></div>
+
+    <script>
+      let items = JSON.parse(localStorage.getItem("items"));
+      if (items)
+        for (let i = 0; i < items.length / 3; i += 3) {
+          for (let j = 0; j < 3, i + j < items.length; j++) {
+            document.getElementById("items-wrapper").innerHTML += `
+                    <div class = "box">
+                      <h2>${items[i + j].name}</h2>
+                      <input onclick="selectItem('${items[i + j]._id}','${
+              items[i+j].name
+            }','${items[i + j].description}','${items[i + j].image}','${
+              items[i + j].stock_amount
+            }','${
+              items[i + j].price
+            }')"type = "button" class = "btn" value = "Select">
+                  </div>
+            `;
+          }
+          document.getElementById("body").insertAdjacentHTML(
+            "beforeend",
+            `
+                    <br>
+              `
+          );
+        }
+    </script>
+  </body>
+  <script src="request.js"></script>
+</html>
