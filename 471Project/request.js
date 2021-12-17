@@ -167,7 +167,7 @@ function assignDriver(orderID, order_status) {
 }
 
 // update order status
-function updateOrder(driverID, orderID, order_status, pickup_time, arrival_time, rating, alert) {
+function updateOrder(driverID, orderID, order_status, pickup_time, arrival_time, rating) {
   console.log(order_status);
   console.log(pickup_time);
   console.log(arrival_time);
