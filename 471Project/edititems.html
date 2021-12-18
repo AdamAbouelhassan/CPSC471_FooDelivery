@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Edit Item</title>
+  </head>
+  <body id="body" class="stores">
+    <header class="heading">
+      <h1>FooDelivery!</h1>
+      <nav>
+        <ul>
+          <li><a href="addedititems.html">Back to Add/Edit Menu</a></li>
+        </ul>
+      </nav>
+    </header>
+    <script>
+      document.getElementById("body").insertAdjacentHTML(
+        "beforeend",
+        `
+          <div class="container6">
+          <form action="">
+            <h1>Edit Item</h1>
+            <div class="form-group">
+              <label for="">Name</label>
+              <input
+                id="item-name"
+                type="text"
+                class="form-control"
+                value="${localStorage.getItem("itemName")}"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="">Price</label>
+              <input
+                id="item-price"
+                type="text"
+                class="form-control"
+                value="${localStorage.getItem("itemPrice")}"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="">Stock Amount</label>
+              <input
+                id="item-stock"
+                type="text"
+                class="form-control"
+                value="${localStorage.getItem("itemStockAmount")}"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="">Description</label>
+              <input
+                id="item-description"
+                type="text"
+                class="form-control"
+                value="${localStorage.getItem("itemDescription")}"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="">Image</label>
+              <input
+                id="item-img"
+                type="text"
+                class="form-control"
+                value="${localStorage.getItem("itemImage")}"
+                required
+              />
+            </div>
+
+            <input id="edit-item" type="button" class="btn" value="Edit Item" />
+          </form>
+        </div>
+      `
+      );
+
+      document.getElementById("edit-item").onclick = function () {
+        editItem(
+          localStorage.getItem("itemID"),
+          document.getElementById("item-name").value,
+          document.getElementById("item-price").value,
+          document.getElementById("item-stock").value,
+          document.getElementById("item-description").value,
+          document.getElementById("item-img").value
+        );
+      };
+    </script>
+  </body>
+  <script src="request.js"></script>
+</html>

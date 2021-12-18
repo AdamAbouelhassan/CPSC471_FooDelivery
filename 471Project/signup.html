@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sign Up</title>
+</head>
+<body class = "main">
+
+    <div class = "container">
+        <h1 class = "titleS" >FooDelivery!</h1>
+        <form action="">
+            <h1>Sign Up</h1>
+            <div class = "form-group">
+                <label for="">Email</label>
+                <input id = "emailtext" type="text" class = "form-control" required>
+            </div>
+
+            <div class = "form-group">
+                <label for="">Password</label>
+                <input id = "passwordtext" type="password" class = "form-control" required>
+            </div>
+
+            <div class = "form-group">
+                <label for="">First Name</label>
+                <input id = "fnametext" type="text" class = "form-control" required>
+            </div>
+
+            <div class = "form-group">
+                <label for="">Last Name</label>
+                <input id = "lnametext" type="text" class = "form-control" required>
+            </div>
+
+            <div class = "form-group">
+                <label for="">Age</label>
+                <input id = "agetext" type="text" class = "form-control" required>
+            </div>
+
+            <div class = "form-group">
+                <label for="">Address</label>
+                <input id = "addresstext" type="text" class = "form-control" required>
+            </div>
+
+            <div class = "form-group">
+                <label for="">Phone Number</label>
+                <input id = "pnumbertext" type="text" class = "form-control" required>
+            </div>
+            
+            <div class="form-check">
+                <input id="driverCheck" type="checkbox" class="form-check-input">
+                <label class="form-check-label" for="driverCheck">Register as Driver?</label>
+            </div>
+
+            <input onclick = "signUp()" type="button" class = "btn" value = "Sign Up">
+            <!-- <a href = #><input type="submit" class = "btn2" value = "Back to Login"></a> -->
+            <!-- <input type="submit" class = "btn" value = "Login"> -->
+        </form>
+        <a href = "login.html"><input type="submit" class = "btn2" value = "Back to Login">
+    </div>
+    <footer>
+        
+    </footer>
+
+</body>
+<script src = "request.js"></script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Store Manager Menu</title>
+</head>
+<body class = "stores">
+    <header class = "heading">
+        <h1>FooDelivery!</h1>
+        <nav>
+            <ul>
+              <li><input onclick = "signOut()" type = "button" class = "mybtn" value="Sign Out"></li>
+            </ul>
+          </nav>
+    </header>
+    
+    <div class="wrapper">
+        <div class="box">
+            <h2>View Orders</h2>
+            <input onclick="viewStoreOrders()" type="button" class = "btn" value = "SELECT">
+        </div>
+        <div class="box">
+            <h2>Manage Department</h2>
+            <input onclick = "manageDepartmentsPage()" type="submit" class = "btn" value = "SELECT">
+        </div>
+
+        <div class="box">
+            <h2>Create Promotion</h2>
+            <a href ="addpromotions.html"><input type="submit" class = "btn" value = "SELECT"></a>
+        </div>
+    </div>
+
+</body>
+<script src = "request.js"></script>
+</html>

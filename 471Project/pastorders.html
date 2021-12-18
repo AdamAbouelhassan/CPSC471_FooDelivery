@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Driver Menu</title>
+  </head>
+  <body id="body" class="stores">
+    <header class="heading">
+      <h1>FooDelivery!</h1>
+      <nav>
+        <ul>
+          <li><a href="welcome.html">Back to Menu</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="wrapper2">
+      <h1 style="font-size: 50px">Past Orders</h1>
+    </div>
+
+    <script>
+      let orders = JSON.parse(localStorage.getItem("myOrders"));
+      if (orders) {
+        for (let i = 0; i < orders.length; i++) {
+          document.getElementById("body").insertAdjacentHTML(
+            "beforeend",
+            `
+          <ul id = "past-orders-list" class="list-group items-list list-group-item">
+            <li class="list-group-item">Order Location: ${orders[i].pickup_location.stores}</li>
+            <li class="list-group-item">Delivery Location: ${orders[i].delivery_location}</li>
+            <li class="list-group-item">Date: ${orders[i].date}</li>
+            <li class="list-group-item">Pickup Time: ${orders[i].pickup_time}</li>
+            <li class="list-group-item">Arrival Time: ${orders[i].arrival_time}</li>
+            <li class="list-group-item">Current Status: ${orders[i].status}</li>
+            <li id="items" class="list-group-item">Items Ordered:</li>
+            <li id="total_price${i}" class="list-group-item">Total Price: $${orders[i].cart.total_price}</li>
+          </ul>
+          `
+          );
+
+          for (let j = 0; j < orders[i].cart.items.length; j++) {
+            document.getElementById("total_price" + i).insertAdjacentHTML(
+              "beforeend",
+              `
+                <br>
+                <li id="item" class="list-group-item">Item: ${orders[i].cart.items[j].itemName}</li>
+                <li id="item" class="list-group-item">Quantity: ${orders[i].cart.items[j].amount}</li>
+                <li id="item" class="list-group-item">Price: $${orders[i].cart.items[j].itemPrice}</li>
+                `
+            );
+          }
+          if (orders[i].status == "delivered") {
+            document.getElementById("past-orders-list").innerHTML += `
+            <li id="items" class="list-group-item">Rate your Driver: </li>
+            0 <input type="range" min="0" max="5" value="${orders[i].rating}" class="slider" id="rating-slider${i}"> 5`;
+
+            document.getElementById("rating-slider" + i).onchange =
+              function () {
+                updateOrder(
+                  orders[i].driverID,
+                  orders[i]._id,
+                  orders[i].status,
+                  orders[i].pickup_time,
+                  orders[i].arrival_time,
+                  document.getElementById("rating-slider" + i).value,
+                  "Driver rating submitted"
+                );
+              };
+          }
+        }
+      }
+    </script>
+  </body>
+  <script src="request.js"></script>
+</html>

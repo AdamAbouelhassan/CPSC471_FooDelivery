@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Shopping Cart</title>
+  </head>
+  <body id="body" class="stores">
+    <header class="heading">
+      <h1>FooDelivery!</h1>
+      <nav>
+        <ul>
+          <li><a href="departments.html">Back to Departments</a></li>
+          <li><a href="welcome.html">Back to Main Menu</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <script>
+      let cart = JSON.parse(localStorage.getItem("cart"));
+      console.log(cart.items);
+      let userAddress = localStorage.getItem("currentUserAddress");
+      if (cart.items) {
+        console.log("IN IF");
+        for (let i = 0; i < cart.items.length; i++) {
+          console.log("IN FOR");
+          document.getElementById("body").insertAdjacentHTML(
+            "beforeend",
+            `
+            <ul class="list-group items-list shopping-cart">
+            <li class="list-group-item">Item: ${cart.items[i].itemName}</li>
+            <li class="list-group-item">Amount: ${cart.items[i].amount}</li>
+            <li class="list-group-item">Price: $${
+              parseFloat(cart.items[i].itemPrice) *
+              parseFloat(cart.items[i].amount).toFixed(2)
+            }</li>
+            </ul>
+          `
+          );
+        }
+        document.getElementById("body").insertAdjacentHTML(
+          "beforeend",
+          `
+          <h3>Total Items Price: $${cart.total_price.toFixed(2)}</h3>
+          <h3>Delivery Fee: $${cart.delivery_fee.toFixed(2)}</h3>
+          <h3>Enter Delivery Address:</h3>
+    <input id = "delivery-address" type = "text" value = "${userAddress}">
+    <h3>Enter Delivery Date:</h3>
+    <input id = "delivery-date" type = "date">
+    <h3>Enter Payment Method:</h3>
+    <select id="payment">
+    <option value="Cash">Cash</option>
+    <option value="Credit">Credit</option>
+    <option value="Debit">Debit</option>
+  </select>
+    <input id = "order-button" type="button" class="btn" value="order & pay">
+        `
+        );
+        document.getElementById("order-button").onclick = function () {
+          if (document.getElementById("delivery-date").value == "")
+            window.alert("Please specify a date");
+          else
+            createOrder(
+              document.getElementById("delivery-address").value,
+              document.getElementById("delivery-date").value
+            );
+        };
+      }
+    </script>
+  </body>
+  <script src="request.js"></script>
+</html>

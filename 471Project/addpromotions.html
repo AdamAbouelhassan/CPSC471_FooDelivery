@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Add New Item</title>
+  </head>
+  <body class="stores">
+    <header class="heading">
+      <h1>FooDelivery!</h1>
+      <nav>
+        <ul>
+          <li><a href="storemanager.html">Back</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container6">
+      <form action="">
+        <h1>Create Promo</h1>
+        <div class="form-group">
+          <label for="">Start Date</label>
+          <input id="start-date" type="date" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+          <label for="">End Date</label>
+          <input
+            id="end-date"
+            type="date"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="">Deal</label>
+          <input
+            id="promo-deal"
+            type="text"
+            class="form-control"
+            required
+          />
+        </div>
+        <input
+          onclick="createPromo(document.getElementById('start-date').value,document.getElementById('end-date').value,document.getElementById('promo-deal').value)"
+          type="button"
+          class="btn"
+          value="Create"
+        />
+      </form>
+    </div>
+  </body>
+  <script src="request.js"></script>
+</html>

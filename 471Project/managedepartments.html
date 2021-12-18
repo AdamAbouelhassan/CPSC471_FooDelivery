@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Departments</title>
+  </head>
+  <body id = "body" class="stores">
+    <header class="heading">
+      <h1>FooDelivery!</h1>
+      <nav>
+        <ul>
+          <li><a href="storemanager.html">Back to Menu</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="wrapper2">
+        <h1>Departments</h1>
+      </div>
+    <div id = "departments-wrapper" class="wrapper">
+      </div>
+    </div>
+
+    <script>
+          let departments = JSON.parse(localStorage.getItem("departments"));
+          for (let i = 0; i < departments.length/3; i += 3) {
+            for (let j = 0; j < 3, i + j < departments.length; j++) {
+              document.getElementById("departments-wrapper").innerHTML += `
+                  <div class = "box">
+                    <h2>${departments[i + j].name}</h2>
+                    <input onclick="addEditItems('${departments[i+j]._id}','${departments[i + j].name}')"type = "button" class = "btn" value = "Select">
+                </div>
+          `;
+            }
+            document.getElementById("body").insertAdjacentHTML(
+              "beforeend",
+              `
+                  <br>
+            `
+            );
+          }
+    </script>
+  </body>
+  <script src = "request.js"></script>
+</html>

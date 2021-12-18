@@ -1,0 +1,94 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    height: 70px;
+    background-color: #52b788;
+}
+
+h1{
+    position: absolute;
+    padding: 3px;
+    float: left;
+    margin-left: 2%;
+    margin-top: 10px;
+    font-family: 'Lobster', cursive;
+    color: #1b4332;
+}
+
+ul{
+    width: auto;
+    float: right;
+    margin-top: 8px;
+}
+
+li{
+    display: inline-block;
+    padding: 15px 30px;
+}
+
+a{
+    text-align: center;
+    color: #1b4332;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+}
+
+a:hover{
+    color:white;
+    transition: 0.5s;
+}
+
+.container{
+    height: 600px;  
+    background: #1b4332;
+    text-align: center;
+    background-image: url(grocery2.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+ .search{
+    color: white;
+    text-align: center;
+    margin-left: 770px;
+    margin-top: 200px;
+    font-size: 60px;
+} 
+
+input{
+    height: 40px;
+    width: 300px;
+    margin-top: 270px;
+    margin-left: 650px;
+}
+
+.near{
+    color: #1b4332;
+    /* margin-left: auto; */
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 805px;
+    margin-top: 30px;
+}
+
+.stores-near{
+    text-align: center;
+    height: 400px;
+    background: #99d98c;
+}
+
+.my{
+    background:#1b4332;
+    height: 100px;
+}
+
+.stores{
+    height: 150px;
+    width: 150px;
+}

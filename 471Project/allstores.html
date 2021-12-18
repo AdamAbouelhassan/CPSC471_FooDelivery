@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>All Stores</title>
+  </head>
+  <body id="body" class="stores">
+    <header class="heading">
+      <h1>FooDelivery!</h1>
+      <nav>
+        <ul>
+          <li><a href="shoppingcart.html">Shopping Cart</a></li>
+          <li><a href="welcome.html">Back to Main Menu</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="wrapper2">
+      <h1>Stores</h1>
+    </div>
+    <div id="stores-wrapper" class="wrapper"></div>
+    <script>
+      let stores = JSON.parse(localStorage.getItem("allStores"));
+      for (let i = 0; i < stores.length / 3; i += 3) {
+        for (let j = 0; j < 3, i + j < stores.length; j++) {
+          document.getElementById("stores-wrapper").innerHTML += `
+                  <div class = "box">
+                    <h2>${stores[i + j].name}</h2>
+                    <input onclick="departmentsPage('${stores[i + j]._id}','${
+            stores[i + j].name
+          }')" type = "button" class = "btn" value = "Select">
+                    </div>
+          `;
+        }
+        document.getElementById("body").insertAdjacentHTML(
+          "beforeend",
+          `
+                  <br>
+            `
+        );
+      }
+    </script>
+  </body>
+  <script src="request.js"></script>
+</html>
